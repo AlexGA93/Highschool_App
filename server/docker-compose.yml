@@ -1,0 +1,21 @@
+services:
+  node_server:
+    build: .
+    container_name: docker_server
+    restart: always
+    ports: 
+      - "3000:3000"
+    links:
+      - mysql_database
+    volumes:
+      - .:/usr/src/app
+
+  mysql_database:
+    container_name: docker_database
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: highschool_database
+    ports:
+      - "3001:3001"

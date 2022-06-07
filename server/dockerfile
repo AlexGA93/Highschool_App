@@ -1,0 +1,26 @@
+# node image version
+FROM node:18
+
+# Container directory
+RUN mkdir -p /user/src/app
+
+# Project path as a work directory
+WORKDIR /usr/src/app
+
+# Copy package.json
+COPY package.json ./
+
+# Run command
+RUN npm install -g typescript
+
+# Install dependencies
+RUN npm install
+
+# Copy source code
+COPY . ./
+
+# Port
+EXPOSE 3000
+
+# CMD command
+CMD ["npm", "run", "dev"] 
