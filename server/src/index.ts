@@ -2,10 +2,12 @@
 import http from 'http';
 // config
 import configuration from './config';
-const port = configuration.PORT;
+const port = configuration.NODEPORT;
+
+import mysql from 'mysql';
 
 // database
-// roles
+require('./database/database');
 
 // server init
 const server = http.createServer((req,res) => {
@@ -14,5 +16,9 @@ const server = http.createServer((req,res) => {
     res.end("<h1> Hello World! </h1>")
 });
 
+// get example;
+
 // server listen
-server.listen(port, () => console.log(`Server running at port: ${port}`));
+server.listen(port, () => {
+    console.log(`Server running at port: ${port}`)
+});

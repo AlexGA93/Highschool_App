@@ -4,7 +4,7 @@ services:
     container_name: docker_server
     restart: always
     ports: 
-      - "3000:3000"
+      - "${NODEPORT}:${NODEPORT}"
     links:
       - mysql_database
     volumes:
@@ -15,7 +15,10 @@ services:
     image: mysql:latest
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: highschool_database
+      MYSQL_USER: ${MYSQLUSER}
+      MYSQL_PASSWORD: ${MYSQLPASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     ports:
-      - "3001:3001"
+      - "${MYSQLPORT}:${MYSQLPORT}"
+    # volumes: #Specify created database
