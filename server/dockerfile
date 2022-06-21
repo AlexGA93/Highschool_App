@@ -2,10 +2,10 @@
 FROM node:18
 
 # Container directory
-RUN mkdir -p /user/src/app
+RUN mkdir -p /user/src/Highschool_App
 
 # Project path as a work directory
-WORKDIR /usr/src/app
+WORKDIR /usr/src/Highschool_App
 
 # Copy package.json
 COPY package.json ./
@@ -17,10 +17,11 @@ RUN npm install -g typescript
 RUN npm install
 
 # Copy source code
-COPY . ./
+COPY . .
 
 # Port
-EXPOSE 5000
+EXPOSE 3000
 
 # CMD command
-CMD ["npm", "run", "dev"] 
+CMD npm run dev
+# CMD ["npm", "run", "dev"] 

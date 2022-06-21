@@ -1,21 +1,18 @@
-// import { MySQL_config } from "../types/type";
-import configuration from "../config";
+const mysql = require('mysql2');
 
-import mysql, { PoolConfig } from 'mysql';
+require('dotenv').config();
+console.log(
+    process.env.MYSQL_USER+"\n"+
+    process.env.MYSQL_PASSWORD+"\n"+
+    process.env.MYSQL_DATABASE+"\n"+
+    process.env.MYSQL_HOST);
 
-const config: PoolConfig = {
-    host: (configuration.MYSQLHOST) as string,
-    port:Number(configuration.MYSQLPORT),
-    user: (configuration.MYSQLUSER) as string,
-    password: (configuration.MYSQLPASSWORD) as string,
-    database: (configuration.MYSQL_DATABASE) as string
-};
-
-const conn = mysql.createPool(config);
-
-conn.getConnection((err, connection) => {
-    if (err) throw err;
-    console.log('connected!');
-    
+// const database = '';
+const database = mysql.createConnection({
+    user: process.env.MYSQL_USER,
+    host: process.env.MYSQL_HOST,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE
 });
-export default conn;
+
+module.exports = database;

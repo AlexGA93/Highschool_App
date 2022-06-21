@@ -1,11 +1,11 @@
 export declare interface Config {
-    NODEPORT?: string,
-    MYSQLPORT?:string,
-    MYSQLHOST?:string,
-    MYSQLUSER?:string,
-    MYSQLPASSWORD?:string,
-    MYSQL_ROOT_PASSWORD?:string,
-    MYSQL_DATABASE?:string
+    MYSQL_USER?: string,
+    MYSQL_PASSWORD?: string,
+    MYSQL_DATABASE?: string,
+    MYSQL_HOST?: string,
+    MYSQL_ROOT_PASSWORD?: string,
+    MYSQL_PORT?: string,
+    NODEPORT?: string
 };
 
 // export declare interface MySQL_config {

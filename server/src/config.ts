@@ -5,13 +5,13 @@ import { Config } from './types/type';
 require('dotenv').config();
 
 let configuration: Config = {
-    NODEPORT:process.env.NODEPORT,
-    MYSQLPORT: process.env.MYSQLPORT,
-    MYSQLHOST:process.env.MYSQLHOST,
-    MYSQLUSER:process.env.MYSQLUSER,
-    MYSQLPASSWORD:process.env.MYSQLPASSWORD,
-    MYSQL_ROOT_PASSWORD:process.env.MYSQL_ROOT_PASSWORD,
-    MYSQL_DATABASE:process.env.MYSQL_DATABASE
+    MYSQL_USER: process.env.MYSQL_USER,
+    MYSQL_PASSWORD: process.env.MYSQL_PASSWORD,
+    MYSQL_DATABASE: process.env.MYSQL_DATABASE,
+    MYSQL_HOST: process.env.MYSQL_HOST,
+    MYSQL_ROOT_PASSWORD: process.env.MYSQL_ROOT_PASSWORD,
+    MYSQL_PORT: process.env.MYSQL_PORT,
+    NODEPORT: process.env.NODEPORT
 };
 
 export default configuration;
