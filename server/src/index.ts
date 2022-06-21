@@ -1,18 +1,18 @@
-// http
-import http from 'http';
-// config
+import express from 'express';
+const app = express();
+
+//configuration
 import configuration from './config';
-const port = configuration.PORT;
 
-// database
-// roles
+require('dotenv').config();
 
-// server init
-const server = http.createServer((req,res) => {
-    res.statusCode = 200;
-    res.setHeader("Content-Type", "text/html");
-    res.end("<h1> Hello World! </h1>")
-});
+// routes
+const routes = require('./router/router');
 
-// server listen
-server.listen(port, () => console.log(`Server running at port: ${port}`));
+// init
+app.use(express.json());
+app.use(routes);
+
+const port = configuration.NODEPORT;
+
+app.listen(port, () => console.log(`Server running at port ${port}!`));

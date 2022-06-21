@@ -1,21 +1,45 @@
-services:
-  node_server:
-    build: .
-    container_name: docker_server
-    restart: always
-    ports: 
-      - "3000:3000"
-    links:
-      - mysql_database
-    volumes:
-      - .:/usr/src/app
 
-  mysql_database:
-    container_name: docker_database
+version: "3.8"
+
+services:
+  mysqldb:
     image: mysql:latest
-    restart: always
+    restart: unless-stopped
+    env_file: ./.env
     environment:
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: highschool_database
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE=$MYSQL_DATABASE
     ports:
-      - "3001:3001"
+      - $MYSQL_PORT:$MYSQL_PORT
+    volumes:
+      - db:/var/lib/mysql
+
+
+  nodeapp:
+    depends_on:
+      - mysqldb
+    build: .
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - $NODEPORT:$NODEPORT
+    environment:
+      - MYSQL_USER=$MYSQL_USER
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
+      - MYSQL_DATABASE=$MYSQL_DATABASE
+      - MYSQL_HOST=$MYSQL_HOST
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_PORT=$MYSQL_PORT
+      - NODEPORT=$NODEPORT
+    # stdin_open and tty: keep open the terminal after building container
+    stdin_open: true
+    tty: true
+
+    
+# named volumes that keeps our data alive after restart.
+volumes:
+  db:
+
+
+  
+  
