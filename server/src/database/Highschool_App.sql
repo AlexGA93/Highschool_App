@@ -6,22 +6,20 @@
 -- create tables
 CREATE TABLE highschools(
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-
   center_name VARCHAR(100) NOT NULL,
   contact_phone VARCHAR(100) NOT NULL,
   location VARCHAR(100) NOT NULL,
   website VARCHAR(100) NOT NULL
 );
 
-INSERT INTO highschools (center_name, contact_phone, location, website) VALUES ('highschool1', '111-222-333', 'C/1 meh,3', 'www.website1.com'),('highschool2', '333-222-111', 'C/2 meh,23', 'www.website2.com'),('highschool3', '222-111-333', 'C/3 meh,2', 'www.website3.com'),('highschool4', '222-333-111', 'C/4 meh,239', 'www.website4.com');
-
 CREATE TABLE teachers(
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-
+  role VARCHAR(100) NOT NULL,
   first_name VARCHAR(100) NOT NULL,
   second_name VARCHAR(100) NOT NULL,
   age int NOT NULL,
   email VARCHAR(100) NOT NULL,
+  password VARCHAR(100) NOT NULL,
   contact_phone VARCHAR(100) NOT NULL,
   educational_center INT NOT NULL,
 
@@ -30,11 +28,12 @@ CREATE TABLE teachers(
 
 CREATE TABLE students(
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-
+  role VARCHAR(100) NOT NULL,
   first_name VARCHAR(100) NOT NULL,
   second_name VARCHAR(100) NOT NULL,
   age int NOT NULL,
   email VARCHAR(100) NOT NULL,
+  password VARCHAR(100) NOT NULL,
   contact_phone VARCHAR(100) NOT NULL
 );
 
@@ -42,7 +41,6 @@ CREATE TABLE subjects(
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   subject_name VARCHAR(100) NOT NULL,
   qualification FLOAT NOT NULL,
-  
   student_id INT NOT NULL,
   FOREIGN KEY(student_id) REFERENCES students(id)
 );
