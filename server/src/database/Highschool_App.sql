@@ -64,7 +64,9 @@ CREATE TABLE classrooms(
   FOREIGN KEY(student_id) REFERENCES students(id)
 );
 
+insert into students(role, first_name, second_name, age, email, password, contact_phone) values('student', 'alex', 'gimeno', 29, 'example@mail.com', 'pass123', '111222333');
 
+insert into subjects(subject_name, qualification, student_id) values('mates', 2.4, 1);
 
 -- external foreign keys
 

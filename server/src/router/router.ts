@@ -4,7 +4,7 @@ const router = express.Router();
 const controller = require('../controllers/controllers');
 
 // create full structure database
-router.get('/database/create/restore-database', controller.createDatabase);
+// router.get('/database/create/restore-database', controller.createDatabase);
 
 // signup user
 router.post('/database/add/teacher', controller.addNewTeacher);
@@ -13,12 +13,13 @@ router.post('/database/add/student', controller.addNewStudent);
 // create tables
 router.post('/database/create-highschools', controller.createHighschool);
 router.post('/database/create-teacher', controller.createTeacher);
-router.post('/database/create-student', controller.createStudent);
+router.post('/database/create-student', controller.createStudent); 
 router.post('/database/create-subjects', controller.createStudent);
 router.post('/database/create-evaluations', controller.createEvaluations);
 router.post('/database/create-classrooms', controller.createClassrooms);
 
-
+// test
+router.post('/insertSubject', controller.insertSubject);
 
 // // ACTIONS BY ROLE - ADMIN
 
