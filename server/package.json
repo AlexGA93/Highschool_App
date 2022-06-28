@@ -16,13 +16,15 @@
     "@types/jsonwebtoken": "^8.5.8",
     "@types/mysql": "^2.15.21",
     "bcrypt": "^5.0.1",
-    "concurrently": "^7.2.1",
+    "concurrently": "^7.2.2",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-validator": "^6.14.2",
+    "fs": "^0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
-    "mysql2": "^2.3.3"
+    "mysql2": "^2.3.3",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^2.0.16",

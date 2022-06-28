@@ -21,6 +21,11 @@ npm i bcrypt concurrently dotenv jsonwebtoken
 ```
 npm i -D nodemon
 npm install -D ts-node
+npm i -g npm-check-updates
+```
+This last one allows us to check our npm dependencies version. We can use this with the following command:
+```
+ncu
 ```
 ```
 npm i @types/bcryptjs
