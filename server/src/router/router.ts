@@ -4,27 +4,50 @@ const router = express.Router();
 const controller = require('../controllers/controllers');
 // import { body } from 'express-validator';
 
-router.get('/create-database', controller.createDatabase);
+router.get('/database/create/restore-database', controller.createDatabase);
 
-router.get('/create', controller.createHighschool);
-router.get('/insert',controller.insertHighschool);
-router.get('/display', controller.displayHighschool);
+// ACTIONS BY ROLE - ADMIN
+
+// table creation
+router.post('/database/create-highschools', controller.createHighschool);
+router.post('/database/create-teachers', controller.createHighschool);
+router.post('/database/create-students', controller.createHighschool);
+router.post('/database/create-subjects', controller.createHighschool);
+router.post('/database/create-evaluations', controller.createHighschool);
+router.post('/database/create-classrooms', controller.createHighschool);
+// insert data
+router.post('/database/insert-into-highschools', controller.createHighschool);
+router.post('/database/insert-into-teachers', controller.createHighschool);
+router.post('/database/insert-into-students', controller.createHighschool);
+router.post('/database/insert-into-subjects', controller.createHighschool);
+router.post('/database/insert-into-evaluations', controller.createHighschool);
+router.post('/database/insert-into-classrooms', controller.createHighschool);
+// update data
+router.put('/database/modify-highschools', controller.createHighschool);
+router.put('/database/modify-teachers', controller.createHighschool);
+router.put('/database/modify-students', controller.createHighschool);
+router.put('/database/modify-subjects', controller.createHighschool);
+router.put('/database/modify-evaluations', controller.createHighschool);
+router.put('/database/modify-classrooms', controller.createHighschool);
+
+// delete data
+router.delete('/database/delete-highschools', controller.createHighschool);
+router.delete('/database/delete-teachers', controller.createHighschool);
+router.delete('/database/delete-students', controller.createHighschool);
+router.delete('/database/delete-subjects', controller.createHighschool);
+router.delete('/database/delete-evaluations', controller.createHighschool);
+router.delete('/database/delete-classrooms', controller.createHighschool);
 
 
-// create table by table
-// router.get('/database/create/highschools');
-// router.get('/database/create/teachers');
-// router.get('/database/create/students');
-// router.get('/database/create/subjects');
-// router.get('/database/create/evaluations');
-// router.get('/database/create/classrooms');
+// ACTIONS BY ROLE - USER(TEACHERS ,S TUDENT)
 
-
-
-// router.get('/', controller.initialProcess);
-// router.get('/getHighSchools', controller.getHighSchoolsTable);
-// router.get('/database/full', controller.fullDatabase);
-// router.get('/database/displayH', controller.displayHighSchools);
+// display data
+router.get('/database/display-highschools', controller.createHighschool);
+router.get('/database/display-teachers', controller.createHighschool);
+router.get('/database/display-students', controller.createHighschool);
+router.get('/database/display-subjects', controller.createHighschool);
+router.get('/database/display-evaluations', controller.createHighschool);
+router.get('/database/display-classrooms', controller.createHighschool);
 
 
 module.exports = router;

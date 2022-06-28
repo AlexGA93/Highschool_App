@@ -1,7 +1,7 @@
 -- create database
-CREATE DATABASE Highschool_App;
+-- CREATE DATABASE Highschool_App;
 -- select database
-USE Highschool_App;
+-- USE Highschool_App;
 
 -- create tables
 CREATE TABLE highschools(

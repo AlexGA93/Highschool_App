@@ -7,21 +7,12 @@ import fs from 'fs';
 import path from 'path';
 
 // create database
-const createDatabase = (
-    req: Request,
-    res: Response
-) => {
-    const creationOrder = "CREATE DATABASE IF NOT EXISTS Highschool_App;"
-    db.query(
-        creationOrder,
-        (err:Error) => {
-            if (err) throw err;
-            
-            res.send('database created!');
-        }
-    );
-
-};
+// const createDatabase = (
+//     req: Request,
+//     res: Response
+// ) => {
+    
+// };
 
 // create highschool table
 const createHighschool = (
@@ -79,7 +70,7 @@ const displayHighschool = (
 };
 
 module.exports = {
-    createDatabase,
+    // createDatabase,
     createHighschool,
     insertHighschool,
     displayHighschool
